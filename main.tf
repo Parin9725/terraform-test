@@ -22,7 +22,7 @@ resource "aws_iam_policy" "policy" {
   name        = "test-policy"
   description = "A test policy"
   policy = <<EOF
-{
+  {
     "Version": "2012-10-17",
     "Statement": [
         {
@@ -32,8 +32,8 @@ resource "aws_iam_policy" "policy" {
             "Resource": "*"
         }
     ]
-}
-EOF
+  }
+  EOF
 }
 
 resource "aws_iam_role_policy_attachment" "test-attach" {
