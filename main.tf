@@ -21,11 +21,12 @@ EOF
 resource "aws_iam_policy" "policy" {
   name        = "test-policy"
   description = "A test policy"
-  policy = <<EOF{
+  policy = <<EOF
+{
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "VisualEditor0",
+            "Sid": "",
             "Effect": "Allow",
             "Action": "ec2:DescribeInstances",
             "Resource": "*"
