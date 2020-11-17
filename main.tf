@@ -2,38 +2,19 @@ resource "aws_iam_role" "role" {
   name = "test-role"
 
   assume_role_policy = <<EOF
-  {
-    "Version": "2012-10-17",
-    "Statement": [
+    {
+      "Version": "2012-10-17",
+      "Statement": [
         {
-            "Sid": "VisualEditor0",
-            "Effect": "Allow",
-            "Action": [
-                "ec2:GetDefaultCreditSpecification",
-                "ec2:GetManagedPrefixListEntries",
-                "ec2:DescribeTags",
-                "ec2:GetCoipPoolUsage",
-                "ec2:DescribeVpnConnections",
-                "ec2:GetEbsEncryptionByDefault",
-                "ec2:GetCapacityReservationUsage",
-                "ec2:DescribeVolumesModifications",
-                "ec2:GetHostReservationPurchasePreview",
-                "ec2:DescribeFastSnapshotRestores",
-                "ec2:GetConsoleScreenshot",
-                "ec2:GetReservedInstancesExchangeQuote",
-                "ec2:GetConsoleOutput",
-                "ec2:GetPasswordData",
-                "ec2:GetLaunchTemplateData",
-                "ec2:DescribeScheduledInstances",
-                "ec2:DescribeScheduledInstanceAvailability",
-                "ec2:GetManagedPrefixListAssociations",
-                "ec2:GetEbsDefaultKmsKeyId",
-                "ec2:DescribeElasticGpus"
-            ],
-            "Resource": "*"
+          "Action": "sts:AssumeRole",
+          "Principal": {
+            "Service": "ec2.amazonaws.com"
+          },
+          "Effect": "Allow",
+          "Sid": ""
         }
-    ]
-}
+      ]
+    }
 EOF
 }
 
@@ -43,16 +24,15 @@ resource "aws_iam_policy" "policy" {
 
   policy = <<EOF
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": [
-        "ec2:Describe*"
-      ],
-      "Effect": "Allow",
-      "Resource": "*"
-    }
-  ]
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": "ec2:DescribeInstances",
+            "Resource": "*"
+        }
+    ]
 }
 EOF
 }
