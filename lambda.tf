@@ -19,13 +19,12 @@ EOF
 }
 
 resource "aws_lambda_function" "test_lambda" {
-  filename      = "lambda_function_payload.zip"
-  function_name = "parin"
+  function_name = "${var.environment}-${var.project}"
+  s3_bucket     = "parin-dataa"
+  s3_key        = "lambda.zip"
+  handler       = "main.handler"
   role          = aws_iam_role.iam_for_lambda.arn
-  handler       = "exports.test"
-
-  source_code_hash = filebase64sha256("lambda_function_payload.zip")
-  runtime = "dotnetcore3.1"
+  runtime       = "dotnetcore3.1"
 
   environment {
     variables = {
