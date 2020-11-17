@@ -19,7 +19,7 @@ EOF
 }
 
 resource "aws_lambda_function" "test_lambda" {
-  function_name = "${var.environment}-${var.project}"
+  function_name = "parin"
   s3_bucket     = "parin-dataa"
   s3_key        = "lambda.zip"
   handler       = "main.handler"
