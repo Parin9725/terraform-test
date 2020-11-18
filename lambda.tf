@@ -56,6 +56,11 @@ resource "aws_iam_policy" "policy" {
 EOF
 }
 
+resource "aws_iam_role_policy_attachment" "test-attach" {
+  role       = aws_iam_role.iam_for_lambda.name
+  policy_arn = aws_iam_policy.policy.arn
+}
+
 resource "aws_lambda_function" "test_lambda" {
   function_name = "parin"
   s3_bucket     = "parin-dataa"
