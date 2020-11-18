@@ -27,19 +27,13 @@ resource "aws_iam_policy" "policy" {
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "VisualEditor0",
-            "Effect": "Allow",
             "Action": [
+                "logs:CreateLogGroup",
                 "logs:CreateLogStream",
-		"logs:PutLogEvents"
-            ],
-            "Resource": "arn:aws:logs:*:897701442878:log-group:/aws/lambda/parin/*"
-        },
-        {
-            "Sid": "VisualEditor1",
-            "Effect": "Allow",
-            "Action": "logs:CreateLogGroup",
-            "Resource": "arn:aws:logs:*:897701442878:*"
+                "logs:PutLogEvents"
+             ],
+             "Resource": "arn:aws:logs:*:*:*",
+             "Effect": "Allow"
         },
         {
             "Sid": "VisualEditor2",
