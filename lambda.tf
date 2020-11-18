@@ -77,3 +77,8 @@ resource "aws_lambda_function" "test_lambda" {
     }
   }
 }
+
+resource "aws_cloudwatch_log_group" "example" {
+  name              = "/aws/lambda/parin"
+  retention_in_days = 7
+}
