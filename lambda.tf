@@ -70,8 +70,18 @@ resource "aws_lambda_function" "test_lambda" {
   runtime       = "dotnetcore3.1"
   timeout       = 600
   memory_size   = 128
+  depends_on = [
+    aws_iam_role_policy_attachment.test-attach,
+    aws_cloudwatch_log_group.example,
+  ]
 
 }
+
+resource "aws_cloudwatch_log_group" "example" {
+  name              = "/aws/lambda/parin-logs"
+  retention_in_days = 7
+}
+
 
 resource "aws_lambda_event_source_mapping" "event_source_mapping" {
   event_source_arn = "${aws_sqs_queue.terraform_queue.arn}"
