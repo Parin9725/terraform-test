@@ -31,15 +31,15 @@ resource "aws_iam_policy" "policy" {
             "Effect": "Allow",
             "Action": [
                 "logs:CreateLogStream",
-                "logs:CreateLogGroup"
+		"logs:PutLogEvents"
             ],
-            "Resource": "arn:aws:logs:*:897701442878:log-group:*"
+            "Resource": "arn:aws:logs:*:897701442878:log-group:/aws/lambda/parin/*"
         },
         {
             "Sid": "VisualEditor1",
             "Effect": "Allow",
-            "Action": "logs:PutLogEvents",
-            "Resource": "arn:aws:logs:*:897701442878:log-group:*:log-stream:/aws/lambda/*"
+            "Action": "logs:CreateLogGroup",
+            "Resource": "arn:aws:logs:*:897701442878:*"
         },
         {
             "Sid": "VisualEditor2",
