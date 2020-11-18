@@ -57,7 +57,7 @@ resource "aws_iam_role_policy_attachment" "test-attach" {
 
 resource "aws_lambda_function" "test_lambda" {
   function_name = "parin"
-  s3_bucket     = "parin-dataa"
+  s3_bucket     = "jfyjvgjyt"
   s3_key        = "lambda.zip"
   handler       = "main.handler"
   role          = aws_iam_role.iam_for_lambda.arn
