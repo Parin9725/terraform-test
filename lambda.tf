@@ -71,10 +71,5 @@ resource "aws_lambda_function" "test_lambda" {
   timeout       = 600
   memory_size   = 128
 
-  environment {
-    variables = {
-      foo = "bar"
-    }
-  }
 }
 
