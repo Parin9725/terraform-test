@@ -68,6 +68,8 @@ resource "aws_lambda_function" "test_lambda" {
   handler       = "main.handler"
   role          = aws_iam_role.iam_for_lambda.arn
   runtime       = "dotnetcore3.1"
+  timeout       = 600
+  memory_size   = 128
 
   environment {
     variables = {
