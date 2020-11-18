@@ -72,3 +72,4 @@ resource "aws_lambda_event_source_mapping" "event_source_mapping" {
   function_name    = "${aws_lambda_function.test_lambda.arn}"
   batch_size       = 1
 }
+
